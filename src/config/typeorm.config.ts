@@ -10,4 +10,7 @@ export const typeOrmConfig = (configService: ConfigService): TypeOrmModuleOption
     database: configService.get<string>('DATABASE_NAME'),
     entities: [__dirname + '/../**/*.entity.{js,ts}'],
     synchronize: true,
+    ssl: {
+    rejectUnauthorized: true, // Exige una conexión TLS válida y segura
+  },
 });
